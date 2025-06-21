@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam Detector</title>
+    <style>
+        body { font-family: Arial; margin: 50px; }
+        input[type=text] { width: 300px; padding: 10px; }
+        input[type=submit] { padding: 10px 20px; }
+        .result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Spam Detector</h1>
+    <form method="POST" action="/predict">
+        <label>Enter Message:</label><br><br>
+        <input type="text" name="message" required>
+        <input type="submit" value="Check">
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <p>Message: {{ message }}</p>
+            <p>Prediction: <strong>{{ prediction }}</strong></p>
+        </div>
+    {% endif %}
+</body>
+</html>
